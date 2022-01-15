@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
+import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 
-ReactDOM.render(
+ReactDOM.render( 
   <React.StrictMode>
-    <App />
+    <App />  {/*eu chamo oq está no App */}
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root') 
 );
 

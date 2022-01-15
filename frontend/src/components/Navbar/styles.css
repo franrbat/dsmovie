@@ -1,0 +1,41 @@
+header{
+    /*aqui estamos colocando o estilo para o header
+    ele recupera da variavel --color-primary que estpa no index.css
+    está limitando a altura    
+    display flex deixa um elemento do lado do outro
+    alinha os itens ao centro
+    */
+    background-color: var(--color-primary);
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+/*aqui está configurando os estilos que serão aplicado ao chaamd a classe
+ q é chamada no index.tsx
+ justify é para cada elemento ficar em um canto*/
+.dsmovie-nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.dsmovie-contact-container {
+    display: flex;
+    align-items: center;
+}
+
+/*está tirando a margem de onde a classe foi chamada : topo - esquerda - em baixo - direita (margem de px)*/
+.dsmovie-contact-link {
+    margin: 0 0 0 10px;
+    font-size: 12px;
+}
+
+/*font-weight: 700; é o negrito*/
+.dsmovie-nav-content h1 {   
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+}
+
