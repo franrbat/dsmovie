@@ -11,7 +11,7 @@ function Listing() {
                         <MovieCard />                                     {/*col-lg-4 a partir da largura da pagina 992 cada card vai ocupar 4 das 12 colunas*/}
                     </div>                                                {/*col-xl-3 a partir da largura da pagina 1200 cada card vai ocupar 3 das 12 colunas*/}
                     <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">     {/*mb-3 acrescenta uma margem pra a linha de baixo*/}
-                        <MovieCard />
+                        <MovieCard />   {/*o MovieCard quem tem o Layout de td o Card - botão/estrelas*/}
                     </div>
                     <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
                         <MovieCard />
