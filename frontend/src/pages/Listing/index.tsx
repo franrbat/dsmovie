@@ -1,18 +1,36 @@
 import axios from "axios";
 import MovieCard from "components/MovieCard";
 import Pagination from "components/Pagination";
+import { useState,useEffect } from "react";
 import { BASE_URL } from "utils/requests";
+import { MoviePage } from "types/movie";   //importando o retorno do serviço de movies, na parte do MoviePages
 
 function Listing() {
 
-    //faz a requisição. Executar algo dps que a requisição chegar (than)
-axios.get(`${BASE_URL}/movies?page=1&size=12`).then(response =>{
-        console.log(response.data)
-    });
 
+    const [pageNumber, setPageNumber] = useState(0);  //Hooks - Manter estado no componente
+
+
+
+
+     //faz a requisição. Executar algo dps que a requisição chegar (than)
+    /*axios.get(`${BASE_URL}/movies?page=0`).then(response =>{
+            const data = response.data  as MoviePage;    //joga a resposta da requisição do serviço na variavel data
+            setPageNumber(data.number);  //traz a pagina que está trazendo no request (que nesse caso estou informando na url da linha do axios)
+        });*/
+
+        useEffect(() =>{
+            //jogando essa lógica dentro do Hooks useEfeect ele vai ser executado apenas uma x
+            axios.get(`${BASE_URL}/movies?page=0`).then(response =>{
+                const data = response.data  as MoviePage;    
+                setPageNumber(data.number);  
+            })
+        },[])   //recebe 2 argumento (uma função a ser executada e [] uma lista de obejtos que vai observar - sempre q alterar algo nos objetos ele vai executar a função de novo)
+               //se a lista estiver vazia, ele só vai executar a função quando a pagina for carregada
 
     return (
         <>
+            <p> {pageNumber} </p>
             <Pagination />
             <div className="conteiner">   {/*comando boots*/}
                 <div className="row">
