@@ -18,6 +18,7 @@ function Listing() {
             setPageNumber(data.number);  //traz a pagina que está trazendo no request (que nesse caso estou informando na url da linha do axios)
         });*/
 
+        //faz a leitura do MoviePage- que retorna no final do serviço de movie
     const [page, setPage] = useState<MoviePage>({
         content: [],
         last: true,
@@ -40,9 +41,17 @@ function Listing() {
     }, [pageNumber])   //recebe 2 argumento (uma função a ser executada e [] uma lista de obejtos que vai observar - sempre q alterar algo nos objetos ele vai executar a função de novo)
     //se a lista estiver vazia, ele só vai executar a função quando a pagina for carregada
 
+
+    const handlePageChange = (newPageNumber : number) => {
+        setPageNumber(newPageNumber);
+    }
+
+    //quando cliquei no botão na tela, chamo o Pagination (que tem a logica do pagina +-1) e executo o onChange(handlePageChange), no handlePageChange eu passo o numero da pagina e dentro dele eu seto o PageNumber
+    // e sempre q o pageNumber mudar, o meu useEffect é executado novamente, assim chamando a URL do serviço e passando o numero da pagina
+
     return (
         <>
-            <Pagination />
+            <Pagination page={page} onChange={handlePageChange}/>
 
             <div className="conteiner">   {/*comando boots*/}
                 <div className="row">
