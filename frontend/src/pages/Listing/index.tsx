@@ -1,7 +1,16 @@
+import axios from "axios";
 import MovieCard from "components/MovieCard";
 import Pagination from "components/Pagination";
+import { BASE_URL } from "utils/requests";
 
 function Listing() {
+
+    //faz a requisição. Executar algo dps que a requisição chegar (than)
+axios.get(`${BASE_URL}/movies?page=1&size=12`).then(response =>{
+        console.log(response.data)
+    });
+
+
     return (
         <>
             <Pagination />
